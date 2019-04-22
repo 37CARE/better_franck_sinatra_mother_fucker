@@ -1,0 +1,103 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<div Align = center class="container">
+    <div class="col-sm">
+
+  <title>The Gossip Project</title>
+</head>
+<body>
+  <h1>WELCOME TO GOSSIP CITY BEACH!</h1>
+  <h3>LE PARADIS DES LANGUES DE PUTE!!!</h3>
+
+<p></p>
+    
+<ul class="list-group-item list-group-item-action">
+    <h3>Voici les dernieres nouvelles croustillantes :</h3>
+
+
+<li class="list-group-item list-group-item-action">
+    <% gossips.each_with_index do |gossip,i| %>
+    <p>
+      <a href="/gossips/<%= i+1 %>/"> <%= gossip.author %></a><br/>
+      <%= gossip.content %>
+    </p>
+    <% end %>
+
+  </ul>
+
+<p></p>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+  CLICK ICI POUR BALANCER UN GOSSIP
+</button>
+
+<h1>REJOINS LE HALL OF FAME</H1>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">POSTE ICI TON GOSSIP</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h2>BALANCE TON DOSSIER</h2>
+    <p>Trop facile d'être une commère, il suffit de renseigner le formulaire ci-dessous</p>
+
+<form action='/gossips/new/' method='POST'>
+  <div class="form-group">
+    <label for="gossip_author">C'est quoi ton blaze?</label>
+    <input type='text' name='gossip_author' class="form-control" id="gossip_author" aria-describedby="gossip_author" placeholder="Anonymous' si tu es une vraie langue de pute" >
+    <small id="gossip_author" class="form-text text-muted">On ne révèlera jamais ta réelle identité</small>
+  </div>
+
+  <div class="form-group">
+    <label for="gossip_content">C'est Quoi ton doss?</label>
+    <input type="text" name="gossip_content" class="form-control" id="gossip_content" placeholder="Par ici les secrets">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-outline-primary">Je fais ma langue de pute</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p></p>
+
+
+  <div @media (min-width: 992px) and (max-width: 1199.98px) { ... } id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="https://mradio.fr/media/news/quand-jean-pierre-pernault-sous-titre-nicolas-sarkozy.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://resize.programme-television.ladmedia.fr/r/670,670/img/var/premiere/storage/images/tele-7-jours/news-tv/steevy-boulay-regrette-sa-participation-aux-anges-de-la-tele-realite-nrj12-4319473/77730373-1-fre-FR/Steevy-Boulay-regrette-sa-participation-aux-Anges-de-la-tele-realite-NRJ12.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://media.ouest-france.fr/v1/pictures/24d78e100cecb32e3f030fad15deffe6-video-cyril-hanouna-demande-qu-lui-rende-les-millions-du-csa-en-chanson-dans-tpmp.jpg?width=1260&height=712&fill=0&focuspoint=49%2C25&cropresize=1&client_id=cmsfront&sign=3de3fddd872c62361d7f142a65176facd67d092b2dee21ec28f89f7b9f1b8de9" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+  <title></title>
+
+</head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<body>
+
+<div Align = center class="container">
+    <div class="col-sm">
+
+    <h2> TU AS DEMANDÉ À VOIR</h2>
+
+   <%# le ID est le numéro appelé dans l'URL %>
+    <h2> LE GOSSIP NUMERO <%= id %> </h2>
+
+<%# SI LE GOSSIP CORRESPOND À UN GOSSIP EXISTANT ALORS RECUPERE AUTEUR ET GOSSIP POUR LES INSERER DANS LE HTML %>
+    <% if gossip.class == Gossip %>
+
+    <h4>Auteur :</h4>
+    <p> <%= gossip.author %> </p>
+    
+    <h5>Contenu :</h5>
+    <p> <%= gossip.content %></p>
+
+<%# ICI ON VA AFFICHERUN POPUP NODAL DE BOOTSTRAP POUR MODIFIER LE GOSSIP %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+  JE SOUHAITE MODIFIER CE GOSSIP
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">POSTE ICI TON GOSSIP</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h2>RETABLIS LA VÉRITÉ</h2>
+
+<%# ICI ON VA EDITER DE NOUVEAU LE FICHIER CSV A L'AIDE DE L'ID DE LA PAGE %>
+<form action='/gossips/<%= id %>/edit/' method='POST'>
+  <div class="form-group">
+    <label for="gossip_author">Saisi ici le nouvel auteur </label>
+    <input type='text' name='gossip_author' class="form-control" id="gossip_author" aria-describedby="gossip_author" placeholder="Anonymous' si tu es une vraie langue de pute" >
+    <small id="gossip_author" class="form-text text-muted">On ne révèlera jamais ta réelle identité</small>
+  </div>
+
+  <div class="form-group">
+    <label for="gossip_content">Dis nous la vérité?</label>
+    <input type="text" name="gossip_content" class="form-control" id="gossip_content" placeholder="Par ici les secrets">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-outline-primary">Je valide ce gossip</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%# SI L'ID DE LA PAGE NE CORRESPOND À AUCUN GOSSIP POSTE CE MESSAGE %>
+    <% elsif gossip.class == String %>
+  <h3 Alert>PAS DE GOSSIP DISPONIBLE, MAIS ON COMPTE SUR TOI POUR ALLIMENTER LES DOSSIERS!</h3>
+  <% end %>
+
+<p></p>
+
+<div>
+
+  <a href="/" button type="button" class="btn btn-outline-primary" >HOME</a>
+
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
