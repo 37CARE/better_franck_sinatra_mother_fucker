@@ -12,33 +12,22 @@
   <title>The Gossip Project</title>
 </head>
 <body>
+<p></p>
+<div class="text-success alert alert-warning">
   <h1>WELCOME TO GOSSIP CITY BEACH!</h1>
   <h3>LE PARADIS DES LANGUES DE PUTE!!!</h3>
+  </div>
 
-<p></p>
-    
-<ul class="list-group-item list-group-item-action">
-    <h3>Voici les dernieres nouvelles croustillantes :</h3>
-
-
-<li class="list-group-item list-group-item-action">
-    <% gossips.each_with_index do |gossip,i| %>
-    <p>
-      <a href="/gossips/<%= i+1 %>/"> <%= gossip.author %></a><br/>
-      <%= gossip.content %>
-    </p>
-    <% end %>
-
-  </ul>
-
-<p></p>
+  <p></p>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
   CLICK ICI POUR BALANCER UN GOSSIP
 </button>
 
-<h1>REJOINS LE HALL OF FAME</H1>
+<p></p>
+
+<h2 class ="text-danger">REJOINS LE HALL OF FAME</h2>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -91,6 +80,24 @@
     </div>
   </div>
 </div>
+
+
+<p></p>
+    
+<ul class="list-group-item list-group-item-action">
+    <h3>Voici les dernieres nouvelles croustillantes :</h3>
+
+
+<li class="list-group-item list-group-item-action">
+    <% gossips.each_with_index do |gossip,i| %>
+    <p>
+      <a href="/gossips/<%= i+1 %>/"> <%= gossip.author %></a><br/>
+      <%= gossip.content %>
+    </p>
+    <% end %>
+
+  </ul>
+
 
   </div>
 

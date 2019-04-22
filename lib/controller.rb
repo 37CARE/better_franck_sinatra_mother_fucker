@@ -1,13 +1,15 @@
 require 'csv'
 require 'gossip'
 
+# INITITION DE L'APPLICATION À PARTIR DE INDEX ET UTILISATION DE LA CLASSE GOSSIP
+
 class ApplicationController < Sinatra::Base
   get '/' do
     erb :index, locals: {gossips: Gossip.all}
   end
 
   get '/gossips/new/' do
-    erb :new_gossip
+    erb :index
   end
 
   post '/gossips/new/' do
